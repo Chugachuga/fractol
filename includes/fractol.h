@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 15:27:00 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/06/17 17:39:27 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/06/17 19:57:19 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,17 @@ typedef struct	s_z
 	int			color;
 }				t_z;
 
+void			ft_init_mandelbis(t_z *z);
+void			ft_init_mandel(t_z *z);
+void			ft_init_julia(t_z *z);
+void			ft_init_bship(t_z *z);
+void			ft_do_mandel(t_z *z);
+void			ft_do_mandelbis(t_z *z);
+void			ft_do_julia(t_z *z);
+void			ft_do_bship(t_z *z);
 void			ft_mandelbrot(t_z *z);
 void			ft_julia(t_z *z);
+void			ft_mandelbis(t_z *z);
+void			ft_burningship(t_z *z);
 void			put_pixel_to_image(int x, int y, t_z *z, int a);
 #endif
