@@ -6,13 +6,13 @@
 #    By: jgeslin  <jgeslin@student.42.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/15 12:36:55 by jgeslin           #+#    #+#              #
-#    Updated: 2016/05/31 16:34:51 by gvilmont         ###   ########.fr        #
+#    Updated: 2016/06/17 17:40:11 by gvilmont         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 
-SRC = ./srcs/main.c ./srcs/ft_mandelbrot.c
+SRC = ./srcs/main.c ./srcs/ft_mandelbrot.c ./srcs/ft_julia.c
 
 OBJ = $(SRC:.c=.o)
 

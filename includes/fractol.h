@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 15:27:00 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/06/03 16:41:43 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/06/17 17:39:27 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ typedef struct	s_z
 	float		x2;
 	float		y1;
 	float		y2;
-	float		ix;
-	float		iy;
+	int			ix;
+	int			iy;
+	float		tmp;
 	float		zoom;
 	void		*mlx;
 	void		*win;
@@ -47,4 +48,6 @@ typedef struct	s_z
 }				t_z;
 
 void			ft_mandelbrot(t_z *z);
+void			ft_julia(t_z *z);
+void			put_pixel_to_image(int x, int y, t_z *z, int a);
 #endif
