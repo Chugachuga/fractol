@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 15:27:00 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/06/17 19:57:19 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/06/30 21:35:16 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include "../libft/includes/libft.h"
 # include <fcntl.h>
 # include <math.h>
+
+# define WIN_X 800
+# define WIN_Y 640
 
 typedef struct	s_z
 {
@@ -45,6 +48,7 @@ typedef struct	s_z
 	int			s_line;
 	int			ed;
 	int			color;
+	char		*argv;
 }				t_z;
 
 void			ft_init_mandelbis(t_z *z);
@@ -57,6 +61,7 @@ void			ft_do_julia(t_z *z);
 void			ft_do_bship(t_z *z);
 void			ft_mandelbrot(t_z *z);
 void			ft_julia(t_z *z);
+int				ft_julia_hook(int x, int y, t_z *z);
 void			ft_mandelbis(t_z *z);
 void			ft_burningship(t_z *z);
 void			put_pixel_to_image(int x, int y, t_z *z, int a);
