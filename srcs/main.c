@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 20:03:46 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/08/31 19:28:47 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/08/31 19:41:35 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ int		main(int ac, char *av[])
 	if ((z->f = ft_choose(z)))
 	{
 		z->color = 1;
+		ft_menu();
 		z->mlx = mlx_init();
 		z->win = mlx_new_window(z->mlx, WIN_X, WIN_Y, "Fractol");
 		z->img = mlx_new_image(z->mlx, WIN_X, WIN_Y);

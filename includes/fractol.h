@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 15:27:00 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/06/30 21:35:16 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/08/31 19:41:01 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef struct	s_z
 	char		*argv;
 }				t_z;
 
+void			ft_menu();
 void			ft_init_mandelbis(t_z *z);
 void			ft_init_mandel(t_z *z);
 void			ft_init_julia(t_z *z);
