@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/17 17:32:21 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/07/07 16:40:04 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/08/31 19:29:15 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_julia(t_z *z)
 	}
 }
 
-int        ft_julia_hook(int x, int y, t_z *z)
+int		ft_julia_hook(int x, int y, t_z *z)
 {
 	if (!(ft_strcmp(z->argv, "julia")) &&
 			x <= WIN_X && y <= WIN_Y && x > 0 && y > 0)

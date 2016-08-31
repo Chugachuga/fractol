@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 16:24:27 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/06/17 19:30:04 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/08/31 19:24:35 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,16 @@ void	put_pixel_to_image(int x, int y, t_z *z, int a)
 	{
 		if (a == 1)
 		{
-			*(int*)(z->img_data + ((int)((z->bit_per_pixel / 8) *
-					(x)) + z->s_line * (y))) = z->i * 1899750;
+			if (z->color == 1)
+			{
+				*(int*)(z->img_data + ((int)((z->bit_per_pixel / 8) *
+						(x)) + z->s_line * (y))) = z->i * 1899750;
+			}
+			if (z->color == 2)
+			{
+				*(int*)(z->img_data + ((int)((z->bit_per_pixel / 8) *
+						(x)) + z->s_line * (y))) = z->i * 255 / z->imax;
+			}
 		}
 		if (a == 2)
 		{
