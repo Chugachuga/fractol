@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 20:03:46 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/08/31 19:41:35 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/08/31 20:13:42 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,10 @@ int		ft_keyhook(int keycode, t_z *z)
 		z->color = 1;
 	if (keycode == 1)
 		z->color = 2;
+	if (keycode == 69)
+		z->imax += 5;
+	if (keycode == 78)
+		z->imax -= 5;
 	if (keycode == 18 || keycode == 19)
 	{
 		mlx_clear_window(z->mlx, z->win);
@@ -93,6 +97,7 @@ int		main(int ac, char *av[])
 	if ((z->f = ft_choose(z)))
 	{
 		z->color = 1;
+		z->imax = 40;
 		ft_menu();
 		z->mlx = mlx_init();
 		z->win = mlx_new_window(z->mlx, WIN_X, WIN_Y, "Fractol");
