@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/17 19:32:38 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/08/31 20:13:45 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/09/10 19:15:05 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,18 @@ void	ft_init_bship(t_z *z)
 	z->zoom = 250;
 	z->ix = (z->x2 - z->x1) * z->zoom + 50;
 	z->iy = (z->y2 - z->y1) * z->zoom;
+}
+
+void	ft_init(t_z *z)
+{
+	z->color = 1;
+	z->imax = 40;
+	if (z->f == 1)
+		ft_init_julia(z);
+	if (z->f == 2)
+		ft_init_mandel(z);
+	if (z->f == 3)
+		ft_init_mandelbis(z);
+	if (z->f == 4)
+		ft_init_bship(z);
 }

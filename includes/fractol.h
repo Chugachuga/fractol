@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 15:27:00 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/08/31 19:41:01 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/09/10 19:23:22 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,16 @@ typedef struct	s_z
 	int			x;
 	int			y;
 	float		x1;
-	float		x2;
 	float		y1;
+	float		x2;
 	float		y2;
 	int			ix;
 	int			iy;
 	float		tmp;
+	float		tmpx;
+	float		tmpx2;
+	float		tmpy;
+	float		tmpy2;
 	float		zoom;
 	void		*mlx;
 	void		*win;
@@ -51,6 +55,11 @@ typedef struct	s_z
 	char		*argv;
 }				t_z;
 
+int				ft_choose(t_z *z);
+void			ft_new(t_z *z);
+void			ft_errors(t_z *z);
+void			ft_init(t_z *z);
+void			ft_value(t_z *z);
 void			ft_menu();
 void			ft_init_mandelbis(t_z *z);
 void			ft_init_mandel(t_z *z);
@@ -63,6 +72,7 @@ void			ft_do_bship(t_z *z);
 void			ft_mandelbrot(t_z *z);
 void			ft_julia(t_z *z);
 int				ft_julia_hook(int x, int y, t_z *z);
+int				ft_mouse_hook(int button, int x, int y, t_z *z);
 void			ft_mandelbis(t_z *z);
 void			ft_burningship(t_z *z);
 void			put_pixel_to_image(int x, int y, t_z *z, int a);

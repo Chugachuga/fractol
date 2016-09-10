@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 20:03:46 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/08/31 20:13:42 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/09/10 19:25:15 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int		ft_choose(t_z *z)
 		ft_putstr("**ERROR, julia, mandelbrot,\n");
 		ft_putstr("mandelbis and burningship\n");
 		ft_putstr("available only**\n");
+		free(z);
 	}
 	return (0);
 }
@@ -69,15 +70,14 @@ int		ft_keyhook(int keycode, t_z *z)
 		z->imax -= 5;
 	if (keycode == 18 || keycode == 19)
 	{
-		mlx_clear_window(z->mlx, z->win);
 		z->argv = (keycode == 18 ? "mandelbrot" : "julia");
+		ft_new(z);
 	}
 	if (keycode == 20 || keycode == 21)
 	{
-		mlx_clear_window(z->mlx, z->win);
 		z->argv = (keycode == 20 ? "mandelbis" : "burningship");
+		ft_new(z);
 	}
-	z->f = ft_choose(z);
 	return (1);
 }
 
@@ -89,19 +89,19 @@ int		main(int ac, char *av[])
 		return (0);
 	if (ac != 2)
 	{
-		ft_putstr("**ERROR, too many/few argument**\n");
-		ft_putstr("mandelbrot, mandelbis, julia, burningship\n");
+		ft_errors(z);
 		return (0);
 	}
 	z->argv = av[1];
 	if ((z->f = ft_choose(z)))
 	{
-		z->color = 1;
-		z->imax = 40;
 		ft_menu();
 		z->mlx = mlx_init();
 		z->win = mlx_new_window(z->mlx, WIN_X, WIN_Y, "Fractol");
 		z->img = mlx_new_image(z->mlx, WIN_X, WIN_Y);
+		ft_init(z);
+		fractol(z);
+		mlx_mouse_hook(z->win, ft_mouse_hook, z);
 		mlx_hook(z->win, 2, 1, ft_keyhook, z);
 		mlx_hook(z->win, 6, (1L << 6), ft_julia_hook, z);
 		mlx_loop_hook(z->mlx, ft_core, z);
