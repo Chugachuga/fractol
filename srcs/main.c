@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 20:03:46 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/09/10 19:25:15 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/09/29 16:01:07 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int		ft_choose(t_z *z)
 		return (3);
 	if (ft_strcmp(z->argv, "burningship") == 0)
 		return (4);
+	if (ft_strcmp(z->argv, "juliab") == 0)
+		return (5);
 	else
 	{
 		ft_putstr("**ERROR, julia, mandelbrot,\n");
@@ -42,6 +44,8 @@ void	fractol(t_z *z)
 		ft_do_mandelbis(z);
 	if (z->f == 4)
 		ft_do_bship(z);
+	if (z->f == 5)
+		ft_do_juliab(z);
 }
 
 int		ft_core(t_z *z)
@@ -60,14 +64,10 @@ int		ft_keyhook(int keycode, t_z *z)
 		free(z);
 		exit(0);
 	}
-	if (keycode == 0)
-		z->color = 1;
-	if (keycode == 1)
-		z->color = 2;
-	if (keycode == 69)
-		z->imax += 5;
-	if (keycode == 78)
-		z->imax -= 5;
+	if (keycode == 0 || keycode == 1)
+		z->color = keycode == 0 ? 1 : 2;
+	if (keycode == 69 || keycode == 78)
+		z->imax += keycode == 69 ? 5 : -5;
 	if (keycode == 18 || keycode == 19)
 	{
 		z->argv = (keycode == 18 ? "mandelbrot" : "julia");
@@ -76,6 +76,11 @@ int		ft_keyhook(int keycode, t_z *z)
 	if (keycode == 20 || keycode == 21)
 	{
 		z->argv = (keycode == 20 ? "mandelbis" : "burningship");
+		ft_new(z);
+	}
+	if (keycode == 23)
+	{
+		z->argv = "juliab";
 		ft_new(z);
 	}
 	return (1);

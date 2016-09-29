@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 15:27:00 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/09/10 19:23:22 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/09/29 15:24:35 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,9 @@ typedef struct	s_z
 	char		*argv;
 }				t_z;
 
+void			ft_init_juliab(t_z *z);
+void			ft_juliab(t_z *z);
+void			ft_do_juliab(t_z *z);
 int				ft_choose(t_z *z);
 void			ft_new(t_z *z);
 void			ft_errors(t_z *z);

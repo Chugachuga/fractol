@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/31 19:34:45 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/09/10 19:03:28 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/09/29 15:57:51 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,6 @@ void		ft_errors(t_z *z)
 {
 	free(z);
 	ft_putstr("**ERROR, too many/few argument**\n");
-	ft_putstr("mandelbrot, mandelbis, julia, burningship\n");
+	ft_putstr("mandelbrot, mandelbis, julia, burningship\njuliab");
 	return ;
 }
