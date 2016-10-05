@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 16:24:27 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/08/31 19:24:35 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/10/05 15:12:53 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void	ft_mandelbrot(t_z *z)
 		z->y = -1;
 		while (++z->y < z->iy)
 		{
-			z->c_r = z->x / z->zoom + z->x1;
-			z->c_i = z->y / z->zoom + z->y1;
+			z->c_r = z->x / z->zoom + z->x1 + z->xad;
+			z->c_i = z->y / z->zoom + z->y1 + z->yad;
 			z->z_r = 0;
 			z->z_i = 0;
 			z->i = 0;

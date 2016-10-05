@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 15:27:00 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/09/29 15:24:35 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/10/04 16:03:06 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 
 typedef struct	s_z
 {
+	float		xad;
+	float		yad;
 	int			f;
 	float		z_r;
 	float		z_i;
@@ -44,6 +46,8 @@ typedef struct	s_z
 	float		tmpy;
 	float		tmpy2;
 	float		zoom;
+	float		zoomx;
+	float		zoomy;
 	void		*mlx;
 	void		*win;
 	void		*img;
@@ -53,8 +57,15 @@ typedef struct	s_z
 	int			ed;
 	int			color;
 	char		*argv;
+	int			pow;
 }				t_z;
 
+void			ft_power(t_z *z);
+int				ft_keypow(int keycode, t_z *z);
+void			ft_pow(t_z *z);
+void			ft_init_mandelpow(t_z *z);
+void			ft_mandelpow(t_z *z);
+void			ft_do_mandelpow(t_z *z);
 void			ft_init_juliab(t_z *z);
 void			ft_juliab(t_z *z);
 void			ft_do_juliab(t_z *z);

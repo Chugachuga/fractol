@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/17 17:32:21 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/09/29 16:04:04 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/10/05 15:17:54 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	ft_juliab(t_z *z)
 		z->y = -1;
 		while (++z->y < z->iy)
 		{
-			z->z_r = z->x / z->zoom + z->x1;
-			z->z_i = z->y / z->zoom + z->y1;
+			z->z_r = z->x / z->zoom + z->x1 + z->xad;
+			z->z_i = z->y / z->zoom + z->y1 + z->yad;
 			z->i = 0;
 			while (z->z_r * z->z_r + z->z_i * z->z_i < 4 && z->i < z->imax)
 			{
@@ -67,8 +67,8 @@ void	ft_julia(t_z *z)
 		z->y = -1;
 		while (++z->y < z->iy)
 		{
-			z->z_r = z->x / z->zoom + z->x1;
-			z->z_i = z->y / z->zoom + z->y1;
+			z->z_r = z->x / z->zoom + z->x1 + z->xad;
+			z->z_i = z->y / z->zoom + z->y1 + z->yad;
 			z->i = 0;
 			while (z->z_r * z->z_r + z->z_i * z->z_i < 4 && z->i < z->imax)
 			{

@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 20:03:46 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/09/29 16:01:07 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/10/05 15:04:57 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int		ft_choose(t_z *z)
 {
+	z->xad = 0;
+	z->yad = 0;
 	if (ft_strcmp(z->argv, "julia") == 0)
 		return (1);
 	if (ft_strcmp(z->argv, "mandelbrot") == 0)
@@ -24,10 +26,15 @@ int		ft_choose(t_z *z)
 		return (4);
 	if (ft_strcmp(z->argv, "juliab") == 0)
 		return (5);
+	if (!ft_strcmp(z->argv, "mandelpow1") ||
+			!ft_strcmp(z->argv, "mandelpow2") ||
+				!ft_strcmp(z->argv, "mandelpow3"))
+		return (6);
 	else
 	{
 		ft_putstr("**ERROR, julia, mandelbrot,\n");
-		ft_putstr("mandelbis and burningship\n");
+		ft_putstr("mandelbis, burningship, juliab\n");
+		ft_putstr("mandelpow1, mandelpow2, mandelpow3\n");
 		ft_putstr("available only**\n");
 		free(z);
 	}
@@ -46,6 +53,11 @@ void	fractol(t_z *z)
 		ft_do_bship(z);
 	if (z->f == 5)
 		ft_do_juliab(z);
+	if (z->f == 6)
+	{
+		ft_pow(z);
+		ft_do_mandelpow(z);
+	}
 }
 
 int		ft_core(t_z *z)
@@ -78,11 +90,7 @@ int		ft_keyhook(int keycode, t_z *z)
 		z->argv = (keycode == 20 ? "mandelbis" : "burningship");
 		ft_new(z);
 	}
-	if (keycode == 23)
-	{
-		z->argv = "juliab";
-		ft_new(z);
-	}
+	ft_keypow(keycode, z);
 	return (1);
 }
 
